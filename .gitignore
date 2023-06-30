@@ -106,3 +106,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Data Persistence Docker
+
+postgres_data
+mysql_data
+
+#  Docker compuse
+
+.yml
