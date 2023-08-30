@@ -1,20 +1,19 @@
-version: '3'
+version: '3.8'
 services:
-  postgres:
-    image: postgres:13
-    environment:
-      - POSTGRES_DB=my_store
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=Juanmanuel18
+  db:
+    image: mysql
+    restart: always
     ports:
-      - 5432:5432
+      - '3307:3306'
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_ROOT_PASSWORD: "toor"
+    expose:
+      - '3306'
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+        - supermarketspringapp:/var/lib/mysql
+  volumes:
+    supermarketspringapp:
 
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=juanquijano1352@gmail.com
-      - PGADMIN_DEFAULT_PASSWORD=root
-    ports:
-      - 5050:80
+
+
